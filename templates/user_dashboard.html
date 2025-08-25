@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>User Dashboard</h2>
+
+    <!-- Ticket Form -->
+    <div class="ticket-form">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.content.label }}<br>
+                {{ form.content(class="input-field") }}
+                {% if form.content.errors %}
+                    <small class="error">{{ form.content.errors[0] }}</small>
+                {% endif %}
+            </div>
+            {{ form.submit(class="btn") }}
+        </form>
+    </div>
+
+    <!-- User Messages -->
+    <h3>Your Messages:</h3>
+    <div class="messages">
+        {% for msg in messages %}
+            <div class="message-card">
+                <p>{{ msg.content }}</p>
+                <span class="status {% if msg.status == 'Resolved' %}resolved{% else %}pending{% endif %}">
+                    {{ msg.status }}
+                </span>
+            </div>
+        {% else %}
+            <p class="no-messages">You have not raised any tickets yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

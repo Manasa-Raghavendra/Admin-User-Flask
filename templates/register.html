@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="form-title">Register</h2>
+
+<form method="POST" class="form-container">
+    {{ form.hidden_tag() }}
+
+    <!-- Username -->
+    <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="input-field", placeholder="Enter your username") }}
+        {% if form.username.errors %}
+            <small class="error">{{ form.username.errors[0] }}</small>
+        {% elif session.get('username_ok') %}
+            <small class="success">✔ Username is available!</small>
+        {% endif %}
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="input-field", placeholder="Enter your email") }}
+        {% if form.email.errors %}
+            <small class="error">{{ form.email.errors[0] }}</small>
+        {% endif %}
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="input-field", placeholder="Enter your password") }}
+        {% if form.password.errors %}
+            <small class="error">{{ form.password.errors[0] }}</small>
+        {% endif %}
+    </div>
+
+    <!-- Admin Code -->
+    <div class="form-group">
+        {{ form.admin_code.label(class="form-label") }} <span class="optional">(Optional)</span>
+        {{ form.admin_code(class="input-field", placeholder="Enter admin code if any") }}
+    </div>
+
+    <!-- Submit Button -->
+    {{ form.submit(class="btn") }}
+</form>
+
+<p class="note">Note: Enter admin code only if you should register as admin.</p>
+{% endblock %}

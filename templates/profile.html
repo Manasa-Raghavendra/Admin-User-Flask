@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="form-title">Your Profile</h2>
+
+<!-- Flash Success Message -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<form method="POST" class="form-container">
+    {{ form.hidden_tag() }}
+
+    <!-- Username -->
+    <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="input-field", placeholder="Update your username") }}
+        {% if form.username.errors %}
+            <small class="error">{{ form.username.errors[0] }}</small>
+        {% endif %}
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="input-field", placeholder="Update your email") }}
+        {% if form.email.errors %}
+            <small class="error">{{ form.email.errors[0] }}</small>
+        {% endif %}
+    </div>
+
+    <!-- Submit -->
+    {{ form.submit(class="btn") }}
+</form>
+{% endblock %}

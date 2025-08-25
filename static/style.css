@@ -1,0 +1,226 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family: 'Merienda', cursive;;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+    padding: 0px;
+}
+
+/* Base Container for Pages */
+.container, .home-container, .dashboard-container {
+    max-width: 700px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Buttons */
+.btn, .btn-small {
+    display: inline-block;
+    background: #00adb5;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 8px;
+}
+
+.btn:hover, .btn-small:hover {
+    background: #00ced1;
+}
+
+.btn-small {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+/* Forms */
+form {
+    width: 100%;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+/* Errors & Success Messages */
+.error {
+    color: #ff4b5c;
+    font-size: 14px;
+}
+
+.success {
+    color: #4caf50;
+    font-size: 14px;
+}
+
+.note {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Home Page */
+.home-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Dashboard Containers */
+.dashboard-container {
+    text-align: left;
+}
+
+.dashboard-container h2, .dashboard-container h3 {
+    text-align: center;
+}
+
+/* Messages Section */
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.message-card p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Status Badge */
+.status {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.status.pending {
+    background: #ff9800;
+}
+
+.status.resolved {
+    background: #4caf50;
+}
+
+/* No Messages */
+.no-messages {
+    text-align: center;
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Admin Dashboard specific */
+.message-card form {
+    margin-top: 10px;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);  /* Dark semi-transparent background */
+    display: flex;
+    justify-content: space-between;  /* Left and Right sections */
+    align-items: center;
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+/* Left side (Logo) */
+.nav-left .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* Right side links */
+.nav-right {
+    display: flex;
+    gap: 25px;  /* Spacing between links */
+}
+
+.nav-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.nav-right a:hover {
+    color: #00adb5;  /* Teal hover color */
+    transform: scale(1.1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container, .home-container, .dashboard-container {
+        padding: 15px 20px;
+    }
+
+    h1, h2, h3 {
+        font-size: 22px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

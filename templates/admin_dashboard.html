@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="dashboard-title">Admin Dashboard</h2>
+
+<h3 class="section-title">All Messages:</h3>
+
+<div class="messages">
+    {% for msg in messages %}
+        <div class="message-card">
+            <p><strong>{{ msg.user.username }}:</strong> {{ msg.content }}</p>
+            
+            <span class="status {% if msg.status == 'Resolved' %}resolved{% else %}pending{% endif %}">
+                {{ msg.status }}
+            </span>
+
+            {% if msg.status != 'Resolved' %}
+                <form method="POST" action="{{ url_for('resolve_message', message_id=msg.id) }}">
+                    <button type="submit" class="btn-small">Mark Resolved</button>
+                </form>
+            {% endif %}
+        </div>
+    {% else %}
+        <p class="no-data">No messages found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

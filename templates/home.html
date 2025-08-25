@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+    <h1 class="home-title">Raise Your Ticket & Get It Resolved!!</h1>
+
+    <div class="home-actions">
+        {% if role %}
+            {% if role == 'admin' %}
+                <a href="{{ url_for('admin_dashboard') }}" class="btn">Go to Admin Dashboard →</a>
+            {% else %}
+                <a href="{{ url_for('user_dashboard') }}" class="btn">Go to User Dashboard ←</a>
+            {% endif %}
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('register') }}" class="btn">Register</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
