@@ -11,7 +11,7 @@ from models import db, User, Message
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecretkey"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:@localhost/admin-user"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://admin_user_k0tq_user:Xv8LjwMhYqDBsvffpnmFhRtFccnUSQ1s@dpg-d2ma0lumcj7s73d503hg-a.oregon-postgres.render.com/admin_user_k0tq"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
